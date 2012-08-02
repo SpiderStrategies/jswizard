@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
+<script type="text/javascript" src="wizard.js"></script>
+<link rel="stylesheet" type="text/css" href="wizard.css" />
+
+<script type="text/javascript">
+$(wizardInit);
+</script>
+</head>
+<body>
+<h1>Wizard 1</h1>
+
+
+<div class="wizard" >
+	<div class="wizard-content-area hidden">
+		<div id="one" class="wizard-page">
+			<h2>Page one</h2>
+			<br/>
+			
+			Is page invalid:
+			<select onchange="'no' == this.value ? wizardCurrentPageIsValid() : wizardCurrentPageIsInvalid()">
+				<option value="no">no</option>
+				<option value="yes">yes</option>
+			</select>
+			
+			<br/>
+			Is page 2 enabled:
+			<select onchange="'no' == this.value ? disableWizardPage('two') : enableWizardPage('two')">
+				<option value="yes">yes</option>
+				<option value="no">no</option>
+			</select>
+		</div>
+		<div id="two" class="wizard-page">
+			<h2>Page two</h2>
+			Is page invalid:
+			<select onchange="'no' == this.value ? wizardCurrentPageIsValid() : wizardCurrentPageIsInvalid()">
+				<option value="no">no</option>
+				<option value="yes">yes</option>
+			</select>
+			
+		</div>
+	
+	</div>
+	<div class="wizard-buttons-box hidden">
+		<button class="wizard-back" name="back" onclick="wizardRecede()">Back</button>
+		<button class="wizard-next" name="next" onclick="wizardAdvance()">Next</button>
+		<input type="submit" class="wizard-finish" name="finish" value="Finish"></input>
+	</div>
+
+</div>
+
+
+</body>
+</html>
